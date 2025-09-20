@@ -39,26 +39,44 @@ setx AiProvider__ApiKey "YOUR_API_KEY"
 
 ## 🔧 How to Run
 
-1. Clone the repo into Visual Studio or VS Code.
-2. Update `appsettings.json` with your **Google API key**.
-3. Run the project:
+1. **Clone the repo** into Visual Studio or VS Code.  
+   ```bash
+   git clone https://github.com/digitalsystemz/resume-analyzer-api.git
+   cd resume-analyzer-api
+   ```
 
-```bash
-dotnet run
-```
+2. **Configure your AI provider** as described in the [Providers](#-providers) section.  
 
-4. Test endpoint with Postman / curl:
+3. **Restore and build dependencies**:  
+   ```bash
+   dotnet restore
+   dotnet build
+   ```
+   
+4. **Run the project**:  
+   ```bash
+   dotnet run
+   ```
 
-```bash
-POST https://localhost:5001/api/resume/analyze
-Content-Type: application/json
+5. **Test the API endpoint**:  
+   - Open **Swagger UI** in your browser:  
+     ```
+     https://localhost:5001/swagger
+     ```  
+     and run the `POST /api/resume/analyze` endpoint.  
 
-{
-  "resumeText": "John Doe is a software engineer with 8 years experience..."
-}
-```
+   - Or use **Postman / curl**:  
 
-5. Sample response:
+     ```bash
+     POST https://localhost:5001/api/resume/analyze
+     Content-Type: application/json
+
+     {
+       "resumeText": "John Doe is a software engineer with 8 years experience..."
+     }
+     ```
+
+6. Sample response:
 
 ```json
 {
